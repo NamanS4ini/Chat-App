@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <div>
       {!isConnected ?
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br stone-800  text-white px-4">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br md:stone-800  text-white md:px-4">
           <div className="bg-stone-950 rounded-xl shadow-xl p-8 w-full max-w-sm border border-stone-800">
             <h2 className="text-2xl font-bold mb-6 text-center">Join a Chat Room</h2>
             <input
@@ -87,7 +87,7 @@ export default function Home() {
         </div>
 
         : 
-        <div className="flex flex-col h-screen md:h-[80vh] md:max-h-[700px] max-w-md md:max-w-4xl mx-auto my-0 md:my-12 bg-stone-900 shadow-2xl rounded-xl overflow-hidden border border-stone-800">
+        <div className="flex flex-col md:h-[80vh] h-[100dvh] md:max-h-[700px] md:max-w-4xl mx-auto my-0 md:my-12 bg-stone-900 shadow-2xl md:rounded-xl overflow-hidden border border-stone-800">
           <div className="bg-blue-700 p-5 text-white text-xl font-bold flex items-center justify-between">
             <span>
               Room: <span className="font-mono">{roomId}</span>
