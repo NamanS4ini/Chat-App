@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <div>
       {!isConnected ?
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-stone-900 to-stone-800 text-white px-4">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br stone-800  text-white px-4">
           <div className="bg-stone-950 rounded-xl shadow-xl p-8 w-full max-w-sm border border-stone-800">
             <h2 className="text-2xl font-bold mb-6 text-center">Join a Chat Room</h2>
             <input
