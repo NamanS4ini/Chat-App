@@ -14,22 +14,30 @@ const ChatForm = ({ onSendMessage }: { onSendMessage: (message: string) => void 
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center gap-2 p-4 bg-gradient-to-r bg-stone-900 border-t border-stone-700 shadow-lg">
-      <input
-      type="text"
-      value={message}
-      onChange={(e) => setMessage(e.target.value)}
-      placeholder="Type your message..."
-      className="flex-1 rounded-l-xl px-4 py-2 bg-stone-100/80 text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 shadow-inner"
-      />
+    <form onSubmit={handleSubmit} className="flex items-center p-3 bg-stone-900 shadow-lg">
+      <div className="relative flex-1">
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Type your message..."
+          className="w-full rounded-l-xl px-4 py-3 bg-stone-800/80 text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all duration-200 border border-stone-700/30"
+        />
+        {message.length === 0 && (
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 absolute right-3 top-1/2 transform -translate-y-1/2 text-stone-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clipRule="evenodd" />
+          </svg>
+        )}
+      </div>
       <button
-      type="submit"
-      className="bg-gradient-to-br from-blue-600 to-blue-400 text-white px-6 py-2 rounded-r-xl font-semibold shadow-md hover:scale-105 hover:from-blue-700 hover:to-blue-500 transition-all duration-150 active:scale-95"
+        type="submit"
+        disabled={message.trim() === ""}
+        className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-r-xl font-semibold shadow-md hover:from-blue-700 hover:to-indigo-700 transition-all duration-150 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
       >
-      <span className="hidden sm:inline">Send</span>
-      <svg className="inline-block sm:hidden w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-      </svg>
+        <span className="hidden sm:inline">Send</span>
+        <svg className="inline-block sm:hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
       </button>
     </form>
   )
