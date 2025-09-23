@@ -1,8 +1,5 @@
-@import "tailwindcss";
-
 /* Add this if not already present */
-@tailwind base;
-@tailwind components;
+@import "tailwindcss";
 @tailwind utilities;
 
 @layer utilities {
@@ -34,6 +31,40 @@
       transform: translateY(0);
     }
   }
+
+  /* Subtle, rich dark background with colored glows */
+  .app-bg {
+    background-color: #0b0b0f;
+    background-image:
+      radial-gradient(1200px circle at 10% 10%, rgba(37, 99, 235, 0.08), transparent 40%),
+      radial-gradient(1000px circle at 90% 30%, rgba(99, 102, 241, 0.08), transparent 40%),
+      radial-gradient(800px circle at 30% 80%, rgba(16, 185, 129, 0.06), transparent 35%);
+    background-attachment: fixed;
+  }
+
+  /* Light dot grid for texture on dark surfaces */
+  .bg-dot-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 14px 14px;
+    background-position: 0 0;
+  }
+}
+
+/* Soft selection color on dark background */
+::selection {
+  background-color: rgba(59, 130, 246, 0.35);
+}
+
+/* Performance optimization for animations */
+@layer components {
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .hardware-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
 }
 
 /* Ensure the root elements take full height */
@@ -43,4 +74,9 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+}
+
+/* Prevent content jump on transitions */
+* {
+  box-sizing: border-box;
 }
