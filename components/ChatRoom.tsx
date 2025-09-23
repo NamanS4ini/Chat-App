@@ -19,8 +19,8 @@ const ChatRoom = ({ messages, username, roomId, onSendMessage }: ChatRoomProps) 
   }, [messages]);
 
   return (
-    <div className="w-full h-[100vh] flex justify-center">
-      <div className="w-full h-full lg:h-[95vh] lg:max-w-7xl lg:my-auto lg:mx-6 xl:mx-auto lg:rounded-2xl flex flex-col bg-stone-900/90 backdrop-blur-md shadow-2xl overflow-hidden border border-stone-700/50">
+    <div className="w-full h-dvh flex justify-center">
+      <div className="w-full h-dvh lg:h-dvh lg:max-w-7xl lg:my-auto lg:mx-6 xl:mx-auto lg:rounded-2xl flex flex-col bg-stone-900/90 backdrop-blur-md shadow-2xl overflow-hidden border border-stone-700/50">
         <ChatHeader username={username} roomId={roomId} />
         
         <div className="flex-1 bg-stone-950 bg-dot-grid p-4 overflow-y-auto space-y-3 custom-scrollbar">
